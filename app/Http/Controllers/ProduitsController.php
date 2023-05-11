@@ -25,4 +25,18 @@ class ProduitsController extends Controller
         $produit->save();
         return response()->json($produit);
     }
+
+    function ajouterCommande(Request $request){
+        $idClient = $request->idClient;
+        $idProduit = $request->idProduit;
+        $commande = new Commande();
+        $commande->id_client = $idClient;
+        $commande->id_produit = $idProduit;
+        $commande->quantite = $request->quantite;
+        $commande->date= date("Y/m/d");
+        $commande->save();
+        return response()->json($commande);
+
+
+    }
 }
