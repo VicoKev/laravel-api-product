@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Client;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ClientFactory extends Factory
 {
+    protected $model = Client::class;
     /**
      * Define the model's default state.
      *
@@ -17,7 +19,10 @@ class ClientFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nom' => $this->faker->firstName,
+            'prenom' => $this->faker->lastName,
+            'email' => fake()->unique()->safeEmail(),
+            'password' => password_hash($this->faker->password, PASSWORD_DEFAULT),
         ];
     }
 }
