@@ -6,8 +6,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Collection;
+use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class Produit
@@ -25,6 +28,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Produit extends Model
 {
+	use HasApiTokens, HasFactory, Notifiable;
 	protected $table = 'produits';
 	public $timestamps = false;
 
