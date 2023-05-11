@@ -24,3 +24,5 @@ Route::get('/produits', [ProduitsController::class, "liste"]);
 Route::get('/produits/{id}', [ProduitsController::class, "detail"]);
 
 Route::post('/produits', [ProduitsController::class, "ajouter"]);
+
+Route::post('/commandes', [ProduitsController::class, "ajouterCommande"]);
