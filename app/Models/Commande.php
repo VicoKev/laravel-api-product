@@ -7,7 +7,10 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class Commande
@@ -25,6 +28,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Commande extends Model
 {
+	use HasApiTokens, HasFactory, Notifiable;
 	protected $table = 'commandes';
 	public $timestamps = false;
 
